@@ -1,4 +1,4 @@
-package com.example.ventasweb
+package com.qualitycolombia.ventasweb
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
