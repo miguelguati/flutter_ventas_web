@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ventasweb/src/preferences/preferencias_usuario.dart';
 import '../../utils/utils.dart' as utils;
 
 class LoginPage extends StatefulWidget {
@@ -12,6 +13,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
 
   String _user = "";
+  final prefs = new PreferenciasUsuario();
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -144,11 +146,12 @@ class _LoginPageState extends State<LoginPage> {
 
     if(_user.trim() == ""){
       utils.mostrarAlerta(context, 'El campo usuario no debe estar vacio');
-    }else if(_user.trim().length < 4){
+    }else if(_user.trim().length < 4 || _user.trim().length > 15){
 
-      utils.mostrarAlerta(context, 'El usuario debe ser mayor de 4 caracters');
+      utils.mostrarAlerta(context, 'El usuario debe ser mayor de 4 caracters y menor a 15 caracteres');
     }else{
-      print('Success '+_user);
+      prefs.nombre = _user.toUpperCase();
+      Navigator.pushNamed(context, 'home');
     }
   }
 
