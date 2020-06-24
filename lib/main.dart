@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Ventas Online',
       debugShowCheckedModeBanner: false,
-      initialRoute: 'launch',
+      initialRoute: prefs.nombre == ''?'login':'home',
       routes: {
         'login': (BuildContext context) => LoginPage(),
         'webView': (BuildContext context) => WebViewPage(),
